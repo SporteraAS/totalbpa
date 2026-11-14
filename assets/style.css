@@ -73,18 +73,15 @@ html.js .hero-motiv { opacity: 0; animation: tone 1.6s ease .1s forwards; }
 .hero-knapper { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
 .buer { position: relative; aspect-ratio: 1 / .92; }
 .bue-stor { position: absolute; left: 0; bottom: 0; width: 58%; height: 92%; }
-.bue-liten { position: absolute; right: 0; top: 0; width: 37%; height: 52%; }
-.halden-merke { position: absolute; right: 0; bottom: 7%; width: 37%; background: #fff; border: 3px solid var(--blue); border-radius: 16px; padding: 1rem 1.1rem; color: var(--blue); font-weight: 700; line-height: 1.25; font-size: 1rem; }
-.halden-merke strong { display: block; color: var(--orange-ink); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 900; letter-spacing: -.02em; margin-bottom: .15rem; }
+.bue-liten { position: absolute; right: 0; top: 14%; width: 37%; height: 60%; }
 .fakta { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(3rem, 6vw, 4.5rem); border-top: 3px solid var(--blue); }
 .hero .fakta { padding-bottom: .4rem; }
 .fakta li { padding: 1.2rem 1.5rem 1.4rem 0; font-weight: 700; color: var(--blue); font-size: 1.05rem; }
 .fakta li + li { padding-left: 1.5rem; border-left: 1px solid var(--line); }
 
 /* buene reiser seg ved lasting */
-html.js .bue-stor, html.js .bue-liten, html.js .halden-merke { opacity: 0; transform: translateY(40px); animation: opp 1s cubic-bezier(.2,.75,.2,1) forwards; }
+html.js .bue-stor, html.js .bue-liten { opacity: 0; transform: translateY(40px); animation: opp 1s cubic-bezier(.2,.75,.2,1) forwards; }
 html.js .bue-liten { animation-delay: .15s; }
-html.js .halden-merke { animation-delay: .4s; }
 @keyframes opp { to { opacity: 1; transform: none; } }
 
 /* ---------- Scrollytelling 1: teksten tennes ---------- */
@@ -180,7 +177,6 @@ html.js .inn.vis { opacity: 1; transform: none; }
   body { font-size: 1.04rem; }
   .brand img { height: 26px; }
   .hero h1 { font-size: clamp(2.6rem, 12vw, 3.3rem); }
-  .halden-merke { width: 44%; padding: .8rem; font-size: .88rem; }
   .fakta { grid-template-columns: 1fr; }
   .fakta li, .fakta li + li { padding: 1rem 0; border-left: 0; }
   .fakta li + li { border-top: 1px solid var(--line); }
@@ -196,7 +192,7 @@ html.js .inn.vis { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  html.js .bue-stor, html.js .bue-liten, html.js .halden-merke, html.js .inn, html.js .hero-motiv { opacity: 1; transform: none; }
+  html.js .bue-stor, html.js .bue-liten, html.js .inn, html.js .hero-motiv { opacity: 1; transform: none; }
   html.js .tenn { height: auto; }
   .tenn-fest { position: static; min-height: 0; padding-block: 5rem; }
   .tenn-tekst .ord { opacity: 1; }
