@@ -44,42 +44,6 @@
     revealEls.forEach(function (el) { ro.observe(el); });
   }
 
-  /* --- Kontaktskjema --- */
-  var form = document.getElementById('kontaktskjema');
-  if (form) {
-    var status = form.querySelector('.skjema-status');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var ok = true;
-      form.querySelectorAll('[required]').forEach(function (inp) {
-        var tom = !inp.value.trim();
-        inp.closest('.felt').classList.toggle('feil', tom);
-        inp.setAttribute('aria-invalid', String(tom));
-        if (tom && ok) { inp.focus(); ok = false; }
-      });
-      if (!ok) { status.className = 'skjema-status feil'; status.textContent = 'Fyll inn navn og telefon, så tar vi kontakt.'; return; }
-
-      // TODO: koble skjemaet til en mottaker (f.eks. Formspree) foer lansering
-      if (!form.getAttribute('action')) {
-        status.className = 'skjema-status feil';
-        status.textContent = 'Skjemaet er ikke koblet til ennå. Ring oss gjerne på 994 75 001.';
-        return;
-      }
-      status.className = 'skjema-status'; status.textContent = 'Sender …';
-      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-        .then(function (r) {
-          if (!r.ok) throw new Error();
-          form.reset();
-          status.className = 'skjema-status ok';
-          status.textContent = 'Takk! Vi tar kontakt så snart vi kan.';
-        })
-        .catch(function () {
-          status.className = 'skjema-status feil';
-          status.textContent = 'Noe gikk galt. Ring oss gjerne på 994 75 001.';
-        });
-    });
-  }
-
   var aar = document.getElementById('aar');
   if (aar) aar.textContent = new Date().getFullYear();
 })();
