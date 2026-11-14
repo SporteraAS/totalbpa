@@ -75,8 +75,8 @@ html.js .bue-liten { animation-delay: .15s; }
 @keyframes opp { to { opacity: 1; transform: none; } }
 
 /* ---------- Scrollytelling 1: teksten tennes mens den scroller forbi ---------- */
-.tenn-fest { padding-block: clamp(4.5rem, 11vw, 8rem); }
-.tenn-tekst { font-weight: 700; font-size: clamp(1.8rem, 4.4vw, 3.6rem); line-height: 1.14; letter-spacing: -.025em; max-width: 20ch; color: var(--blue); }
+.tenn-fest { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.tenn-tekst { font-weight: 700; font-size: clamp(1.45rem, 2.6vw, 2.3rem); line-height: 1.25; letter-spacing: -.02em; max-width: 30ch; color: var(--blue); }
 .tenn-tekst .o { color: var(--orange-ink); }
 html.js .tenn-tekst .ord { color: #cdd6ea; transition: color .3s ease; }
 html.js .tenn-tekst .ord.lys { color: var(--blue); }
