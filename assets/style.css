@@ -53,20 +53,11 @@ header.site nav a:hover { color: var(--blue); text-decoration: underline; text-d
 .bue { border-radius: 999px 999px 22px 22px; overflow: hidden; position: relative; }
 .bue img { width: 100%; height: 100%; object-fit: cover; }
 /* plassholder til Mats sender bilder */
-.bilde:not(:has(img)) { background: linear-gradient(165deg, #4f7fd8 0%, var(--blue) 70%); }
-.bilde-o:not(:has(img)) { background: linear-gradient(165deg, #ff9372 0%, var(--orange) 75%); }
-.bilde:not(:has(img))::after { content: 'Bilde: ' attr(data-bilde); position: absolute; left: 0; right: 0; bottom: 1.4rem; text-align: center; padding: 0 1.2rem; color: rgba(255,255,255,.8); font-size: .82rem; font-weight: 600; }
+.bilde:not(:has(img)) { background: var(--varm); border: 2px dashed var(--line); }
+.bilde:not(:has(img))::after { content: 'Bilde: ' attr(data-bilde); position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 0 1.2rem; color: var(--muted); font-size: .9rem; font-weight: 600; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; overflow: hidden; background: var(--varm); padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: 0; }
-/* store, lyse figurer fra logoen bak buene */
-.hero-motiv { position: absolute; right: -8vw; top: -2rem; width: min(62vw, 860px); height: auto; pointer-events: none; }
-.m-b { fill: #dfe7f8; } .m-o { fill: #fde3d8; }
-.m-b-arc, .m-o-arc { fill: none; stroke-width: 80; stroke-linecap: round; }
-.m-b-arc { stroke: #dfe7f8; } .m-o-arc { stroke: #fde3d8; }
-.hero-grid, .hero .wrap { position: relative; }
-html.js .hero-motiv { opacity: 0; animation: tone 1.6s ease .1s forwards; }
-@keyframes tone { to { opacity: 1; } }
+.hero { position: relative; overflow: hidden; background: var(--varm); padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 7vw, 5rem); }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .hero h1 { font-size: clamp(2.9rem, 6.4vw, 5.4rem); margin-bottom: 1.6rem; }
 .ingress { font-size: clamp(1.1rem, 1.6vw, 1.25rem); color: var(--muted); max-width: 33rem; margin-bottom: 2.2rem; }
@@ -74,43 +65,44 @@ html.js .hero-motiv { opacity: 0; animation: tone 1.6s ease .1s forwards; }
 .buer { position: relative; aspect-ratio: 1 / .92; }
 .bue-stor { position: absolute; left: 0; bottom: 0; width: 58%; height: 92%; }
 .bue-liten { position: absolute; right: 0; top: 14%; width: 37%; height: 60%; }
-.fakta { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(3rem, 6vw, 4.5rem); border-top: 3px solid var(--blue); }
-.hero .fakta { padding-bottom: .4rem; }
-.fakta li { padding: 1.2rem 1.5rem 1.4rem 0; font-weight: 700; color: var(--blue); font-size: 1.05rem; }
-.fakta li + li { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+.fakta { list-style: none; display: grid; gap: .55rem; margin-top: 2.2rem; }
+.fakta li { display: flex; align-items: center; gap: .7rem; font-weight: 600; color: var(--ink); font-size: 1rem; }
+.fakta li::before { content: '✓'; flex: none; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--orange); color: #fff; font-size: .78rem; font-weight: 800; }
 
 /* buene reiser seg ved lasting */
 html.js .bue-stor, html.js .bue-liten { opacity: 0; transform: translateY(40px); animation: opp 1s cubic-bezier(.2,.75,.2,1) forwards; }
 html.js .bue-liten { animation-delay: .15s; }
 @keyframes opp { to { opacity: 1; transform: none; } }
 
-/* ---------- Scrollytelling 1: teksten tennes ---------- */
-.tenn { background: var(--blue); color: #fff; }
-html.js .tenn { height: 230vh; }
-.tenn-fest { position: sticky; top: var(--head); min-height: calc(100vh - var(--head)); display: flex; align-items: center; padding-block: 4rem; }
-.tenn-tekst { font-weight: 700; font-size: clamp(1.8rem, 4.4vw, 3.6rem); line-height: 1.14; letter-spacing: -.025em; max-width: 20ch; }
-.tenn-tekst .o { color: #ff8a68; }
-.tenn-tekst .ord { opacity: .22; transition: opacity .3s ease; }
-.tenn-tekst .ord.lys { opacity: 1; }
+/* ---------- Scrollytelling 1: teksten tennes mens den scroller forbi ---------- */
+.tenn-fest { padding-block: clamp(4.5rem, 11vw, 8rem); }
+.tenn-tekst { font-weight: 700; font-size: clamp(1.8rem, 4.4vw, 3.6rem); line-height: 1.14; letter-spacing: -.025em; max-width: 20ch; color: var(--blue); }
+.tenn-tekst .o { color: var(--orange-ink); }
+html.js .tenn-tekst .ord { color: #cdd6ea; transition: color .3s ease; }
+html.js .tenn-tekst .ord.lys { color: var(--blue); }
+html.js .tenn-tekst .o .ord.lys { color: var(--orange-ink); }
+
+/* felles: seksjonene skilles med luft og en tynn linje, ikke fargeflater */
+.bpa, .soknad, .bemanning, .praktisk, .kontakt { padding-block: clamp(4.5rem, 9vw, 7rem); }
+.bpa > .wrap, .soknad > .wrap, .bemanning > .wrap, .praktisk > .wrap, .kontakt > .wrap { position: relative; }
+.soknad > .wrap::before, .bemanning > .wrap::before, .praktisk > .wrap::before, .kontakt > .wrap::before { content: ''; position: absolute; left: var(--pad); right: var(--pad); top: calc(-1 * clamp(4.5rem, 9vw, 7rem)); height: 1px; background: var(--line); }
 
 /* ---------- BPA hos TotalBPA ---------- */
-.bpa, .soknad, .bemanning, .kontakt { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
 .bpa-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
 .bue-hoy { aspect-ratio: 3 / 4; width: 100%; }
 .bpa-tekst p { color: var(--muted); margin-bottom: 1.1rem; }
 .bpa-tekst .stor { font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.45; color: var(--ink); font-weight: 500; }
-.sitat { margin-top: 1.8rem; padding: 1.2rem 1.4rem; background: var(--orange-lys); border-radius: 0 14px 14px 0; border-left: 5px solid var(--orange); color: var(--ink) !important; font-weight: 600; }
+.sitat { margin-top: 1.8rem; padding: .2rem 0 .2rem 1.3rem; border-left: 4px solid var(--orange); color: var(--blue) !important; font-weight: 700; font-size: 1.2rem; line-height: 1.45; }
 
 /* ---------- Scrollytelling 2: soeknadsveien ---------- */
-.soknad { background: var(--blue-lys); }
 .soknad-tittel { max-width: 780px; margin: 0 auto clamp(2.5rem, 5vw, 3.5rem); }
 .steg { list-style: none; position: relative; max-width: 780px; margin: 0 auto; --nr: 58px; }
-.steg-linje { position: absolute; left: calc(var(--nr) / 2 - 2px); top: calc(var(--nr) / 2); bottom: calc(var(--nr) / 2); width: 4px; border-radius: 2px; background: #cfdaf2; }
+.steg-linje { position: absolute; left: calc(var(--nr) / 2 - 2px); top: calc(var(--nr) / 2); bottom: calc(var(--nr) / 2); width: 4px; border-radius: 2px; background: var(--line); }
 .steg-linje span { position: absolute; inset: 0 0 auto 0; height: 0; background: var(--orange); border-radius: 2px; }
 .steg-punkt { position: relative; display: grid; grid-template-columns: var(--nr) 1fr; gap: clamp(1.1rem, 3vw, 2rem); padding-bottom: clamp(2.8rem, 9vh, 5rem); }
 .steg-punkt:last-child { padding-bottom: 0; }
 /* tallene sitter i en liten bue, som hodene i logoen */
-.steg-nr { width: var(--nr); height: calc(var(--nr) * 1.1); border-radius: 999px 999px 12px 12px; display: grid; place-items: center; background: #fff; border: 3px solid #cfdaf2; font-weight: 900; font-size: 1.5rem; color: #8fa3cf; position: relative; z-index: 1; transition: background .35s, border-color .35s, color .35s, transform .45s cubic-bezier(.3,1.6,.5,1); }
+.steg-nr { width: var(--nr); height: calc(var(--nr) * 1.1); border-radius: 999px 999px 12px 12px; display: grid; place-items: center; background: #fff; border: 3px solid var(--line); font-weight: 900; font-size: 1.5rem; color: #9aa6c2; position: relative; z-index: 1; transition: background .35s, border-color .35s, color .35s, transform .45s cubic-bezier(.3,1.6,.5,1); }
 .steg-punkt.paa .steg-nr { background: var(--blue); border-color: var(--blue); color: #fff; transform: translateY(-3px); }
 .steg-punkt h3 { margin: .55rem 0 .4rem; }
 .steg-punkt p { color: var(--muted); max-width: 34rem; }
@@ -120,28 +112,26 @@ html.js .steg-punkt:not(.paa) > div { opacity: .4; }
 
 /* ---------- Bemanning ---------- */
 .bem-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: start; }
-.bem-godkjent { display: flex; gap: .8rem; align-items: flex-start; font-weight: 600; color: var(--blue); background: var(--blue-lys); border-radius: 14px; padding: 1.1rem 1.2rem; max-width: 28rem; font-size: 1rem; }
-.bem-godkjent::before { content: '✓'; flex: none; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--blue); color: #fff; font-size: .85rem; margin-top: .05rem; }
+.bem-godkjent { display: flex; gap: .8rem; align-items: flex-start; font-weight: 600; color: var(--blue); max-width: 28rem; font-size: 1rem; }
+.bem-godkjent::before { content: '✓'; flex: none; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--orange); color: #fff; font-size: .78rem; font-weight: 800; margin-top: .1rem; }
 .bem-tekst p { color: var(--muted); margin-bottom: 1.1rem; }
 .bem-sporsmal { font-size: 1.25rem; font-weight: 700; color: var(--ink) !important; margin-top: 1.8rem; }
 
 /* ---------- Praktisk bistand ---------- */
-.praktisk { padding-bottom: clamp(4.5rem, 9vw, 7rem); }
-.praktisk-boks { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; background: var(--orange-lys); border-radius: 28px; padding: clamp(1.8rem, 4vw, 3rem); }
-.praktisk h2 { color: var(--orange-ink); font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 1rem; }
-.praktisk p { color: #5a4a44; }
+.praktisk-boks { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.praktisk h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 1rem; }
+.praktisk p { color: var(--muted); }
 .praktisk p + p { margin-top: .8rem; }
-.gjoremal { list-style: none; display: grid; gap: .6rem; }
-.gjoremal li { background: #fff; border-radius: 12px; padding: .85rem 1.1rem; font-weight: 700; color: var(--orange-ink); display: flex; align-items: center; gap: .7rem; }
+.gjoremal { list-style: none; display: grid; gap: .1rem; }
+.gjoremal li { padding: .75rem 0; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: .8rem; border-bottom: 1px solid var(--line); }
+.gjoremal li:last-child { border-bottom: 0; }
 .gjoremal li::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); flex: none; }
 
 /* ---------- Kontakt ---------- */
-.kontakt { background: var(--blue); color: rgba(255,255,255,.85); }
-.kontakt h2 { color: #fff; }
 .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
-.kontakt-ingress { font-size: 1.2rem; max-width: 30rem; margin-bottom: 1.8rem; }
-.kontakt-tlf { display: inline-block; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: -.02em; color: #fff; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 5px; text-underline-offset: 10px; }
-.person { display: grid; grid-template-columns: 170px 1fr; gap: 1.6rem; align-items: center; background: #fff; color: var(--ink); border-radius: 24px; padding: 1.6rem; }
+.kontakt-ingress { font-size: 1.2rem; color: var(--muted); max-width: 30rem; margin-bottom: 1.8rem; }
+.kontakt-tlf { display: inline-block; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: -.02em; color: var(--blue); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 5px; text-underline-offset: 10px; }
+.person { display: grid; grid-template-columns: 170px 1fr; gap: 1.8rem; align-items: center; }
 .bue-person { height: 210px; }
 .person-navn { font-size: 1.6rem; font-weight: 800; color: var(--blue); letter-spacing: -.02em; line-height: 1.1; }
 .person-rolle { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
@@ -151,7 +141,7 @@ html.js .steg-punkt:not(.paa) > div { opacity: .4; }
 .person-post a { color: var(--blue); font-weight: 600; }
 
 /* ---------- Bunn ---------- */
-footer.site { background: var(--blue-dk); color: rgba(255,255,255,.7); }
+footer.site { border-top: 1px solid var(--line); color: var(--muted); }
 .foot { padding-block: 2.5rem; display: flex; align-items: center; gap: 1.5rem 3rem; flex-wrap: wrap; font-size: .95rem; }
 .foot img { height: 26px; width: auto; }
 .foot .copy { margin-left: auto; }
@@ -168,7 +158,6 @@ html.js .inn.vis { opacity: 1; transform: none; }
   header.site .knapp-liten { margin-left: auto; }
   .hero-grid, .bpa-grid, .bem-grid, .kontakt-grid { grid-template-columns: 1fr; }
   .buer { max-width: 520px; width: 100%; margin: 0 auto; }
-  .hero-motiv { width: 90vw; right: -30vw; top: auto; bottom: 30%; opacity: .8; }
   .bue-hoy { aspect-ratio: 4 / 3; max-width: 520px; }
   .praktisk-boks { grid-template-columns: 1fr; }
 }
@@ -177,9 +166,6 @@ html.js .inn.vis { opacity: 1; transform: none; }
   body { font-size: 1.04rem; }
   .brand img { height: 26px; }
   .hero h1 { font-size: clamp(2.6rem, 12vw, 3.3rem); }
-  .fakta { grid-template-columns: 1fr; }
-  .fakta li, .fakta li + li { padding: 1rem 0; border-left: 0; }
-  .fakta li + li { border-top: 1px solid var(--line); }
   .steg { --nr: 46px; }
   .steg-nr { font-size: 1.2rem; }
   .soknad-cta { padding-left: 0; }
@@ -192,9 +178,8 @@ html.js .inn.vis { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  html.js .bue-stor, html.js .bue-liten, html.js .inn, html.js .hero-motiv { opacity: 1; transform: none; }
-  html.js .tenn { height: auto; }
-  .tenn-fest { position: static; min-height: 0; padding-block: 5rem; }
-  .tenn-tekst .ord { opacity: 1; }
+  html.js .bue-stor, html.js .bue-liten, html.js .inn { opacity: 1; transform: none; }
+  html.js .tenn-tekst .ord { color: var(--blue); }
+  html.js .tenn-tekst .o .ord { color: var(--orange-ink); }
   html.js .steg-punkt:not(.paa) > div { opacity: 1; }
 }

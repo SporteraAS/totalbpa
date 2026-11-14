@@ -25,7 +25,6 @@
       });
     })(tenn);
   }
-  var tennSek = tenn && tenn.closest('.tenn');
 
   /* --- Scrollytelling 2: linjen tegnes gjennom stegene --- */
   var steg = document.querySelector('[data-steg]');
@@ -39,10 +38,11 @@
     head.classList.toggle('scrolled', window.scrollY > 8);
     var vh = window.innerHeight;
 
-    if (ord.length && tennSek) {
-      var r = tennSek.getBoundingClientRect();
-      var p = klem(-r.top / Math.max(1, r.height - vh), 0, 1);
-      var antall = Math.round(p * 1.2 * ord.length);
+    if (ord.length && tenn) {
+      // starter naar teksten kommer inn nederst, ferdig naar den er en tredjedel opp
+      var r = tenn.getBoundingClientRect();
+      var p = klem((vh * 0.9 - r.top) / (vh * 0.9 - vh * 0.3), 0, 1);
+      var antall = Math.round(p * ord.length);
       for (var i = 0; i < ord.length; i++) ord[i].classList.toggle('lys', i < antall);
     }
 
