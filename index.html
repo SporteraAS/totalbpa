@@ -17,12 +17,12 @@
 
 <link rel="icon" type="image/png" href="bilder/favicon.png" />
 <link rel="apple-touch-icon" href="bilder/apple-touch-icon.png" />
-<meta name="theme-color" content="#faf6f0" />
+<meta name="theme-color" content="#003eb4" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/style.css?v=3" />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css?v=4" />
 </head>
 <body>
 
@@ -37,9 +37,8 @@
       <a href="#slik">Slik søker du</a>
       <a href="#bemanning">Bemanning</a>
       <a href="#praktisk">Praktisk bistand</a>
-      <a href="#kontakt" class="nav-cta">Kontakt</a>
     </nav>
-    <a href="#kontakt" class="nav-cta nav-cta-mob">Kontakt</a>
+    <a href="#kontakt" class="knapp knapp-liten">Ta kontakt</a>
   </div>
 </header>
 
@@ -53,20 +52,27 @@
     <circle cx="420" cy="150" r="96" class="m-o" />
     <path d="M270 470a150 150 0 0 1 300 0" class="m-o-arc" />
   </svg>
-  <div class="wrap hero-inner">
-    <p class="kicker"><span class="prikk"></span>Lokal BPA-leverandør i Halden</p>
-    <h1>Hverdagen din,<br />slik <em>du</em> vil ha den.</h1>
-    <p class="ingress">Brukerstyrt personlig assistanse (BPA) gir deg mer frihet til å bestemme hvordan du vil leve hverdagen din. Hos TotalBPA hjelper vi deg med å forme en BPA-ordning som passer til dine behov og det du ønsker å bruke tiden din på.</p>
-    <div class="hero-handling">
-      <a href="#kontakt" class="knapp">Ta en prat med oss <span aria-hidden="true">→</span></a>
-      <a href="#slik" class="lenke-pil">Slik søker du om BPA</a>
+  <div class="wrap hero-grid">
+    <div class="hero-tekst">
+      <h1>Mer frihet i din hverdag</h1>
+      <p class="ingress">Brukerstyrt personlig assistanse (BPA) gir deg mer frihet til å bestemme hvordan du vil leve hverdagen din. Hos TotalBPA hjelper vi deg med å forme en BPA-ordning som passer til dine behov og det du ønsker å bruke tiden din på.</p>
+      <div class="hero-knapper">
+        <a href="#kontakt" class="knapp">Ta kontakt</a>
+        <a href="#slik" class="understrek">Slik søker du om BPA</a>
+      </div>
+    </div>
+    <div class="buer" aria-hidden="true">
+      <!-- TODO: bytt plassholderne med ekte bilder fra Mats -->
+      <div class="bue bue-stor bilde" data-bilde="Bruker og assistent ute i Halden"></div>
+      <div class="bue bue-liten bilde bilde-o" data-bilde="Mats eller teamet"></div>
+      <div class="halden-merke"><strong>Halden</strong>Rammeavtale med kommunen</div>
     </div>
   </div>
   <div class="wrap">
     <ul class="fakta">
-      <li><strong>Rammeavtale</strong> med Halden kommune</li>
-      <li><strong>Direkte kontakt</strong> med daglig leder</li>
-      <li><strong>Lang erfaring</strong> innen helse og omsorg</li>
+      <li>Lokal BPA-leverandør i Halden</li>
+      <li>Direkte kontakt med daglig leder</li>
+      <li>Lang erfaring innen helse og omsorg</li>
     </ul>
   </div>
 </section>
@@ -75,22 +81,21 @@
 <section class="tenn" aria-label="Om oss">
   <div class="tenn-fest">
     <div class="wrap">
-      <p class="tenn-tekst" data-tenn>Vi er hyggelige folk som bryr oss om menneskene vi jobber med. Derfor tar vi oss tid til å bli kjent med deg, lytte til det som er viktig for deg og finne løsninger <em>sammen med deg</em>.</p>
+      <p class="tenn-tekst" data-tenn>Vi er hyggelige folk som bryr oss om menneskene vi jobber med. Derfor tar vi oss tid til å bli kjent med deg, lytte til det som er viktig for deg og finne løsninger <span class="o">sammen med deg.</span></p>
     </div>
   </div>
 </section>
 
-<!-- MER FRIHET -->
-<section class="frihet" id="bpa">
-  <div class="wrap frihet-grid">
-    <div class="frihet-tittel inn">
-      <p class="merke">BPA hos TotalBPA</p>
-      <h2>Mer frihet i din hverdag</h2>
-    </div>
-    <div class="frihet-tekst inn">
-      <p class="stor">TotalBPA er en lokal BPA-leverandør i Halden, med lang erfaring innen helse- og omsorgstjenester.</p>
-      <p>Hos TotalBPA har vi korte beslutningsveier. Det gjør det enkelt å ta opp spørsmål, komme med innspill eller be om en justering når behovene dine endrer seg. Vi er opptatt av å være åpne og ærlige i dialogen med deg. Det viktigste for oss er at du er fornøyd med assistansen og opplever at den fungerer i hverdagen din.</p>
-      <blockquote>Du kan ta kontakt direkte når du har spørsmål eller når noe i hverdagen endrer seg.</blockquote>
+<!-- BPA HOS TOTALBPA -->
+<section class="bpa" id="bpa">
+  <div class="wrap bpa-grid">
+    <div class="bue bue-hoy bilde bilde-o inn" data-bilde="Hverdagsbilde: assistanse hjemme eller på tur" aria-hidden="true"></div>
+    <div class="bpa-tekst inn">
+      <h2>BPA hos TotalBPA</h2>
+      <p class="stor">Vi er en lokal BPA-leverandør i Halden, og du kan ta kontakt direkte med daglig leder, som også er BPA-koordinatoren din.</p>
+      <p>TotalBPA er en lokal BPA-leverandør i Halden, med lang erfaring innen helse- og omsorgstjenester. Hos TotalBPA har vi korte beslutningsveier. Det gjør det enkelt å ta opp spørsmål, komme med innspill eller be om en justering når behovene dine endrer seg.</p>
+      <p>Vi er opptatt av å være åpne og ærlige i dialogen med deg. Det viktigste for oss er at du er fornøyd med assistansen og opplever at den fungerer i hverdagen din.</p>
+      <p class="sitat">Du kan ta kontakt direkte når du har spørsmål eller når noe i hverdagen endrer seg.</p>
     </div>
   </div>
 </section>
@@ -98,10 +103,7 @@
 <!-- SCROLLYTELLING 2: SLIK SOEKER DU OM BPA -->
 <section class="soknad" id="slik">
   <div class="wrap">
-    <div class="soknad-hode inn">
-      <p class="merke">Slik søker du om BPA</p>
-      <h2>Vi går veien sammen med deg</h2>
-    </div>
+    <h2 class="soknad-tittel inn">Slik søker du om BPA</h2>
     <ol class="steg" data-steg>
       <li class="steg-linje" aria-hidden="true"><span></span></li>
       <li class="steg-punkt">
@@ -121,6 +123,7 @@
         <div><h3>Oppfølging</h3><p>Vi følger opp søknaden din og hjelper deg i dialogen med kommunen fram til ordningen er på plass.</p></div>
       </li>
     </ol>
+    <div class="soknad-cta inn"><a href="#kontakt" class="knapp">Ta en uforpliktende prat</a></div>
   </div>
 </section>
 
@@ -128,7 +131,6 @@
 <section class="bemanning" id="bemanning">
   <div class="wrap bem-grid">
     <div class="inn">
-      <p class="merke">Bemanning</p>
       <h2>Bemanning innen BPA og helse og omsorg</h2>
       <p class="bem-godkjent">Bemanningstjenestene leveres av TotalBistand AS, som er godkjent som bemanningsforetak av Arbeidstilsynet.</p>
     </div>
@@ -136,22 +138,22 @@
       <p>Vi har spesialisert oss på bemanning innen brukerstyrt personlig assistanse (BPA). Vi hjelper BPA-leverandører og kommuner med å finne assistenter til både korte og lengre oppdrag. Når vi finner en vikar, tar vi hensyn til arbeidslederens ønsker, rutinene i ordningen og hvilken erfaring oppdraget krever.</p>
       <p>Vi tilbyr også bemanning til øvrige helse- og omsorgstjenester og finner personell med kompetanse som passer til oppdraget.</p>
       <p class="bem-sporsmal">Trenger dere en vikar eller ekstra bemanning over tid? Ta gjerne kontakt for en prat om hva dere trenger.</p>
-      <a href="#kontakt" class="lenke-pil">Kontakt oss om bemanning</a>
+      <a href="#kontakt" class="understrek">Kontakt oss om bemanning</a>
     </div>
   </div>
 </section>
 
 <!-- PRAKTISK BISTAND -->
 <section class="praktisk" id="praktisk">
-  <div class="wrap praktisk-grid inn">
-    <h2>Praktisk bistand</h2>
+  <div class="wrap praktisk-boks inn">
     <div>
+      <h2>Praktisk bistand</h2>
       <p>TotalBPA er en lokal leverandør av praktisk bistand. Vi hjelper deg med daglige gjøremål som rengjøring, klesvask, skift av sengetøy og handling. Vi tilpasser hjelpen til dine behov og det du ønsker å få gjort hjemme.</p>
-      <ul class="gjoremal" aria-label="Eksempler på praktisk bistand">
-        <li>Rengjøring</li><li>Klesvask</li><li>Skift av sengetøy</li><li>Handling</li>
-      </ul>
-      <p class="liten">Er du nysgjerrig på hva praktisk bistand innebærer, eller lurer du på hva vi kan hjelpe deg med? Ta gjerne kontakt for en hyggelig prat.</p>
+      <p>Er du nysgjerrig på hva praktisk bistand innebærer, eller lurer du på hva vi kan hjelpe deg med? Ta gjerne kontakt for en hyggelig prat.</p>
     </div>
+    <ul class="gjoremal" aria-label="Eksempler på praktisk bistand">
+      <li>Rengjøring</li><li>Klesvask</li><li>Skift av sengetøy</li><li>Handling</li>
+    </ul>
   </div>
 </section>
 
@@ -159,21 +161,19 @@
 <section class="kontakt" id="kontakt">
   <div class="wrap kontakt-grid">
     <div class="inn">
-      <p class="merke merke-lys">Kontakt</p>
       <h2>Snakk direkte med daglig leder</h2>
-      <p class="kontakt-ingress">Daglig leder er også BPA-koordinatoren din. Ring eller send en e-post – vi tar gjerne en hyggelig prat.</p>
+      <p class="kontakt-ingress">Daglig leder er også BPA-koordinatoren din. Ring eller send en e-post, så tar vi en hyggelig prat.</p>
+      <a class="kontakt-tlf" href="tel:+4799475001">994 75 001</a>
     </div>
     <div class="person inn">
-      <div class="person-topp">
-        <span class="monogram" aria-hidden="true">MO</span>
-        <div>
-          <p class="person-navn">Mats Olavesen</p>
-          <p class="person-rolle">Daglig leder og BPA-koordinator</p>
-        </div>
+      <div class="bue bue-person bilde" data-bilde="Mats" aria-hidden="true"></div>
+      <div class="person-info">
+        <p class="person-navn">Mats Olavesen</p>
+        <p class="person-rolle">Daglig leder og BPA-koordinator</p>
+        <a class="kanal" href="mailto:mgo@totalbpa.no">mgo@totalbpa.no</a>
+        <a class="kanal" href="tel:+4799475001">994 75 001</a>
+        <p class="person-post">Generelle henvendelser: <a href="mailto:post@totalbpa.no">post@totalbpa.no</a></p>
       </div>
-      <a class="kanal" href="tel:+4799475001"><span>Telefon</span><strong>994 75 001</strong></a>
-      <a class="kanal" href="mailto:mgo@totalbpa.no"><span>E-post</span><strong>mgo@totalbpa.no</strong></a>
-      <a class="kanal" href="mailto:post@totalbpa.no"><span>Generelle henvendelser</span><strong>post@totalbpa.no</strong></a>
     </div>
   </div>
 </section>
@@ -188,6 +188,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=3" defer></script>
+<script src="assets/site.js?v=4" defer></script>
 </body>
 </html>
