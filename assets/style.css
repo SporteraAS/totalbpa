@@ -131,8 +131,7 @@ html.js .steg-punkt:not(.paa) > div { opacity: .4; }
 .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
 .kontakt-ingress { font-size: 1.2rem; color: var(--muted); max-width: 30rem; margin-bottom: 1.8rem; }
 .kontakt-tlf { display: inline-block; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: -.02em; color: var(--blue); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 5px; text-underline-offset: 10px; }
-.person { display: grid; grid-template-columns: 170px 1fr; gap: 1.8rem; align-items: center; }
-.bue-person { height: 210px; }
+.person { background: var(--varm); border-radius: 24px; padding: clamp(1.6rem, 3.5vw, 2.4rem); }
 .person-navn { font-size: 1.6rem; font-weight: 800; color: var(--blue); letter-spacing: -.02em; line-height: 1.1; }
 .person-rolle { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
 .kanal { display: block; font-weight: 700; color: var(--blue); text-decoration: none; padding: .35rem 0; font-size: 1.1rem; overflow-wrap: anywhere; }
@@ -169,8 +168,6 @@ html.js .inn.vis { opacity: 1; transform: none; }
   .steg { --nr: 46px; }
   .steg-nr { font-size: 1.2rem; }
   .soknad-cta { padding-left: 0; }
-  .person { grid-template-columns: 1fr; text-align: left; }
-  .bue-person { height: 240px; max-width: 200px; }
   .foot .copy { margin-left: 0; }
 }
 
