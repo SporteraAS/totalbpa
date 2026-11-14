@@ -17,12 +17,12 @@
 
 <link rel="icon" type="image/png" href="bilder/favicon.png" />
 <link rel="apple-touch-icon" href="bilder/apple-touch-icon.png" />
-<meta name="theme-color" content="#003eb4" />
+<meta name="theme-color" content="#faf6f0" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/style.css?v=2" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css?v=3" />
 </head>
 <body>
 
@@ -37,8 +37,9 @@
       <a href="#slik">Slik søker du</a>
       <a href="#bemanning">Bemanning</a>
       <a href="#praktisk">Praktisk bistand</a>
+      <a href="#kontakt" class="nav-cta">Kontakt</a>
     </nav>
-    <a href="#kontakt" class="btn btn-blue btn-sm">Kontakt oss</a>
+    <a href="#kontakt" class="nav-cta nav-cta-mob">Kontakt</a>
   </div>
 </header>
 
@@ -46,199 +47,134 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">BPA hos TotalBPA</p>
-      <h1>Din hverdag.<br /><span class="accent">Dine valg.</span></h1>
-      <p class="lead">Brukerstyrt personlig assistanse (BPA) gir deg mer frihet til å bestemme hvordan du vil leve hverdagen din. Hos TotalBPA hjelper vi deg med å forme en BPA-ordning som passer til dine behov og det du ønsker å bruke tiden din på.</p>
-      <div class="hero-btns">
-        <a href="#kontakt" class="btn btn-blue">Ta kontakt</a>
-        <a href="#slik" class="btn btn-ghost">Slik søker du om BPA</a>
-      </div>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 480 440" class="hero-svg">
-        <circle cx="250" cy="220" r="200" class="tint-blue" />
-        <circle cx="388" cy="92" r="58" class="tint-orange" />
-        <!-- to personer fra logoen -->
-        <g class="hp hp-1"><circle cx="185" cy="175" r="62" fill="#003eb4" /><path d="M75 345a110 110 0 0 1 200 0" fill="none" stroke="#003eb4" stroke-width="44" stroke-linecap="round" /></g>
-        <g class="hp hp-2"><circle cx="330" cy="175" r="62" fill="#f64f28" /><path d="M235 345a110 110 0 0 1 200 0" fill="none" stroke="#f64f28" stroke-width="44" stroke-linecap="round" /></g>
-      </svg>
-      <div class="chip chip-1"><span class="dot dot-b"></span>Lokal i Halden</div>
-      <div class="chip chip-2"><span class="dot dot-o"></span>Korte beslutningsveier</div>
-      <div class="chip chip-3"><span class="dot dot-b"></span>Rammeavtale med Halden kommune</div>
+  <svg class="hero-motiv" viewBox="0 0 600 520" aria-hidden="true">
+    <circle cx="190" cy="150" r="96" class="m-b" />
+    <path d="M40 470a150 150 0 0 1 300 0" class="m-b-arc" />
+    <circle cx="420" cy="150" r="96" class="m-o" />
+    <path d="M270 470a150 150 0 0 1 300 0" class="m-o-arc" />
+  </svg>
+  <div class="wrap hero-inner">
+    <p class="kicker"><span class="prikk"></span>Lokal BPA-leverandør i Halden</p>
+    <h1>Hverdagen din,<br />slik <em>du</em> vil ha den.</h1>
+    <p class="ingress">Brukerstyrt personlig assistanse (BPA) gir deg mer frihet til å bestemme hvordan du vil leve hverdagen din. Hos TotalBPA hjelper vi deg med å forme en BPA-ordning som passer til dine behov og det du ønsker å bruke tiden din på.</p>
+    <div class="hero-handling">
+      <a href="#kontakt" class="knapp">Ta en prat med oss <span aria-hidden="true">→</span></a>
+      <a href="#slik" class="lenke-pil">Slik søker du om BPA</a>
     </div>
   </div>
-</section>
-
-<!-- HALDEN -->
-<section class="halden">
-  <div class="wrap halden-inner reveal">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-    <p><strong>Lokal BPA-leverandør i Halden.</strong> Vi har rammeavtale med Halden kommune, og du kan ta kontakt direkte med daglig leder, som også er BPA-koordinatoren din.</p>
-  </div>
-</section>
-
-<!-- BPA -->
-<section class="bpa" id="bpa">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow center">BPA</p>
+    <ul class="fakta">
+      <li><strong>Rammeavtale</strong> med Halden kommune</li>
+      <li><strong>Direkte kontakt</strong> med daglig leder</li>
+      <li><strong>Lang erfaring</strong> innen helse og omsorg</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SCROLLYTELLING 1: TEKSTEN TENNES ORD FOR ORD -->
+<section class="tenn" aria-label="Om oss">
+  <div class="tenn-fest">
+    <div class="wrap">
+      <p class="tenn-tekst" data-tenn>Vi er hyggelige folk som bryr oss om menneskene vi jobber med. Derfor tar vi oss tid til å bli kjent med deg, lytte til det som er viktig for deg og finne løsninger <em>sammen med deg</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MER FRIHET -->
+<section class="frihet" id="bpa">
+  <div class="wrap frihet-grid">
+    <div class="frihet-tittel inn">
+      <p class="merke">BPA hos TotalBPA</p>
       <h2>Mer frihet i din hverdag</h2>
-      <p class="lead">Vi er hyggelige folk som bryr oss om menneskene vi jobber med. Derfor tar vi oss tid til å bli kjent med deg, lytte til det som er viktig for deg og finne løsninger sammen med deg.</p>
     </div>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><path d="M9.5 9.5l2 2 3.5-3.5"/></svg></div>
-        <h3>Lokal og erfaren</h3>
-        <p>TotalBPA er en lokal BPA-leverandør i Halden, med lang erfaring innen helse- og omsorgstjenester.</p>
-      </article>
-      <article class="card reveal d1">
-        <div class="card-ic ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h12"/><path d="M12 6l6 6-6 6"/><path d="M20 5v14"/></svg></div>
-        <h3>Korte beslutningsveier</h3>
-        <p>Det gjør det enkelt å ta opp spørsmål, komme med innspill eller be om en justering når behovene dine endrer seg. Du kan ta kontakt direkte når noe i hverdagen endrer seg.</p>
-      </article>
-      <article class="card reveal d2">
-        <div class="card-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div>
-        <h3>Åpen og ærlig dialog</h3>
-        <p>Det viktigste for oss er at du er fornøyd med assistansen og opplever at den fungerer i hverdagen din.</p>
-      </article>
+    <div class="frihet-tekst inn">
+      <p class="stor">TotalBPA er en lokal BPA-leverandør i Halden, med lang erfaring innen helse- og omsorgstjenester.</p>
+      <p>Hos TotalBPA har vi korte beslutningsveier. Det gjør det enkelt å ta opp spørsmål, komme med innspill eller be om en justering når behovene dine endrer seg. Vi er opptatt av å være åpne og ærlige i dialogen med deg. Det viktigste for oss er at du er fornøyd med assistansen og opplever at den fungerer i hverdagen din.</p>
+      <blockquote>Du kan ta kontakt direkte når du har spørsmål eller når noe i hverdagen endrer seg.</blockquote>
     </div>
   </div>
 </section>
 
-<!-- SCROLLYTELLING: SLIK SOEKER DU OM BPA -->
-<section class="story" id="slik" aria-labelledby="slik-tittel">
+<!-- SCROLLYTELLING 2: SLIK SOEKER DU OM BPA -->
+<section class="soknad" id="slik">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow center">Slik søker du om BPA</p>
-      <h2 id="slik-tittel">Vi hjelper deg hele veien</h2>
+    <div class="soknad-hode inn">
+      <p class="merke">Slik søker du om BPA</p>
+      <h2>Vi går veien sammen med deg</h2>
     </div>
-    <div class="story-grid">
-      <div class="story-stage" aria-hidden="true">
-        <div class="stage-card">
-          <div class="stage-progress"><span></span></div>
-          <div class="stage-num"><span class="stage-cur">1</span> / 4</div>
-
-          <!-- 1 Foerste samtale -->
-          <svg class="scene is-active" data-step="0" viewBox="0 0 320 260">
-            <circle cx="160" cy="130" r="112" class="tint-blue" />
-            <g class="sc-pop"><rect x="62" y="62" width="128" height="78" rx="22" fill="#003eb4" /><path d="M92 140l-8 26 30-26z" fill="#003eb4" /><circle cx="100" cy="101" r="7" fill="#fff" /><circle cx="126" cy="101" r="7" fill="#fff" /><circle cx="152" cy="101" r="7" fill="#fff" /></g>
-            <g class="sc-pop sc-late"><rect x="140" y="124" width="118" height="70" rx="22" fill="#f64f28" /><path d="M228 194l8 22-28-22z" fill="#f64f28" /><path d="M182 164c0-9 14-15 17-4 3-11 17-5 17 4 0 10-17 18-17 18s-17-8-17-18z" fill="#fff" /></g>
-          </svg>
-
-          <!-- 2 Soeknadshjelp -->
-          <svg class="scene" data-step="1" viewBox="0 0 320 260">
-            <circle cx="160" cy="130" r="112" class="tint-orange" />
-            <rect x="98" y="46" width="124" height="164" rx="12" fill="#fff" stroke="#003eb4" stroke-width="5" />
-            <path d="M120 82h80M120 106h80M120 130h56" stroke="#9fb4e0" stroke-width="7" stroke-linecap="round" />
-            <path d="M120 170h46" stroke="#003eb4" stroke-width="7" stroke-linecap="round" />
-            <g class="sc-pop"><rect x="196" y="140" width="22" height="86" rx="6" transform="rotate(35 207 183)" fill="#f64f28" /><path d="M172 218l-8 16 17-6z" fill="#f64f28" /></g>
-          </svg>
-
-          <!-- 3 Dokumentasjon -->
-          <svg class="scene" data-step="2" viewBox="0 0 320 260">
-            <circle cx="160" cy="130" r="112" class="tint-blue" />
-            <rect x="96" y="50" width="128" height="166" rx="14" fill="#fff" stroke="#003eb4" stroke-width="5" />
-            <rect x="130" y="38" width="60" height="24" rx="8" fill="#003eb4" />
-            <g class="sc-pop"><path d="M118 94l8 8 14-14" fill="none" stroke="#f64f28" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M152 96h50" stroke="#9fb4e0" stroke-width="7" stroke-linecap="round" /></g>
-            <g class="sc-pop sc-late"><path d="M118 136l8 8 14-14" fill="none" stroke="#f64f28" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M152 138h50" stroke="#9fb4e0" stroke-width="7" stroke-linecap="round" /></g>
-            <path d="M120 178h82" stroke="#e3e7f0" stroke-width="7" stroke-linecap="round" />
-          </svg>
-
-          <!-- 4 Oppfoelging -->
-          <svg class="scene" data-step="3" viewBox="0 0 320 260">
-            <circle cx="160" cy="130" r="112" class="tint-orange" />
-            <g class="sc-pop"><circle cx="104" cy="106" r="28" fill="#003eb4" /><path d="M60 188a44 44 0 0 1 88 0" fill="none" stroke="#003eb4" stroke-width="18" stroke-linecap="round" /></g>
-            <g class="sc-pop sc-late"><circle cx="216" cy="106" r="28" fill="#f64f28" /><path d="M172 188a44 44 0 0 1 88 0" fill="none" stroke="#f64f28" stroke-width="18" stroke-linecap="round" /></g>
-            <path class="sc-pop sc-late" d="M146 74c0-9 14-15 14-4 0-11 14-5 14 4 0 10-14 18-14 18s-14-8-14-18z" fill="#f64f28" />
-          </svg>
-        </div>
-      </div>
-
-      <ol class="story-steps">
-        <li class="story-step is-active" data-step="0">
-          <span class="step-tag">Steg 1</span>
-          <h3>Første samtale</h3>
-          <p>Vi starter med en uforpliktende prat, der vi blir kjent med deg og hva du trenger hjelp til i hverdagen.</p>
-        </li>
-        <li class="story-step" data-step="1">
-          <span class="step-tag">Steg 2</span>
-          <h3>Søknadshjelp</h3>
-          <p>Om du ønsker det, hjelper vi deg med å skrive en grundig søknad om BPA til kommunen.</p>
-        </li>
-        <li class="story-step" data-step="2">
-          <span class="step-tag">Steg 3</span>
-          <h3>Dokumentasjon</h3>
-          <p>Vi hjelper deg med å dokumentere hvor mye assistanse du trenger, slik at kommunen får et godt bilde av behovet ditt.</p>
-        </li>
-        <li class="story-step" data-step="3">
-          <span class="step-tag">Steg 4</span>
-          <h3>Oppfølging</h3>
-          <p>Vi følger opp søknaden din og hjelper deg i dialogen med kommunen fram til ordningen er på plass.</p>
-        </li>
-      </ol>
-    </div>
+    <ol class="steg" data-steg>
+      <li class="steg-linje" aria-hidden="true"><span></span></li>
+      <li class="steg-punkt">
+        <span class="steg-nr" aria-hidden="true">1</span>
+        <div><h3>Første samtale</h3><p>Vi starter med en uforpliktende prat, der vi blir kjent med deg og hva du trenger hjelp til i hverdagen.</p></div>
+      </li>
+      <li class="steg-punkt">
+        <span class="steg-nr" aria-hidden="true">2</span>
+        <div><h3>Søknadshjelp</h3><p>Om du ønsker det, hjelper vi deg med å skrive en grundig søknad om BPA til kommunen.</p></div>
+      </li>
+      <li class="steg-punkt">
+        <span class="steg-nr" aria-hidden="true">3</span>
+        <div><h3>Dokumentasjon</h3><p>Vi hjelper deg med å dokumentere hvor mye assistanse du trenger, slik at kommunen får et godt bilde av behovet ditt.</p></div>
+      </li>
+      <li class="steg-punkt">
+        <span class="steg-nr" aria-hidden="true">4</span>
+        <div><h3>Oppfølging</h3><p>Vi følger opp søknaden din og hjelper deg i dialogen med kommunen fram til ordningen er på plass.</p></div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- BEMANNING -->
 <section class="bemanning" id="bemanning">
   <div class="wrap bem-grid">
-    <div class="reveal">
-      <p class="eyebrow">Bemanning</p>
+    <div class="inn">
+      <p class="merke">Bemanning</p>
       <h2>Bemanning innen BPA og helse og omsorg</h2>
+      <p class="bem-godkjent">Bemanningstjenestene leveres av TotalBistand AS, som er godkjent som bemanningsforetak av Arbeidstilsynet.</p>
     </div>
-    <div class="bem-tekst reveal d1">
+    <div class="bem-tekst inn">
       <p>Vi har spesialisert oss på bemanning innen brukerstyrt personlig assistanse (BPA). Vi hjelper BPA-leverandører og kommuner med å finne assistenter til både korte og lengre oppdrag. Når vi finner en vikar, tar vi hensyn til arbeidslederens ønsker, rutinene i ordningen og hvilken erfaring oppdraget krever.</p>
       <p>Vi tilbyr også bemanning til øvrige helse- og omsorgstjenester og finner personell med kompetanse som passer til oppdraget.</p>
-      <p class="bem-godkjent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.8-7 9.5-4-1.7-7-5.1-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Bemanningstjenestene leveres av TotalBistand AS, som er godkjent som bemanningsforetak av Arbeidstilsynet.</p>
-      <p>Trenger dere en vikar eller ekstra bemanning over tid? Ta gjerne kontakt for en prat om hva dere trenger.</p>
-      <a href="#kontakt" class="btn btn-white">Kontakt oss om bemanning</a>
+      <p class="bem-sporsmal">Trenger dere en vikar eller ekstra bemanning over tid? Ta gjerne kontakt for en prat om hva dere trenger.</p>
+      <a href="#kontakt" class="lenke-pil">Kontakt oss om bemanning</a>
     </div>
   </div>
 </section>
 
 <!-- PRAKTISK BISTAND -->
 <section class="praktisk" id="praktisk">
-  <div class="wrap">
-    <div class="notis reveal">
-      <div class="card-ic ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>
-      <div>
-        <h2>Praktisk bistand</h2>
-        <p>TotalBPA er en lokal leverandør av praktisk bistand. Vi hjelper deg med daglige gjøremål som rengjøring, klesvask, skift av sengetøy og handling. Vi tilpasser hjelpen til dine behov og det du ønsker å få gjort hjemme.</p>
-        <p>Er du nysgjerrig på hva praktisk bistand innebærer, eller lurer du på hva vi kan hjelpe deg med? Ta gjerne kontakt for en hyggelig prat.</p>
-      </div>
+  <div class="wrap praktisk-grid inn">
+    <h2>Praktisk bistand</h2>
+    <div>
+      <p>TotalBPA er en lokal leverandør av praktisk bistand. Vi hjelper deg med daglige gjøremål som rengjøring, klesvask, skift av sengetøy og handling. Vi tilpasser hjelpen til dine behov og det du ønsker å få gjort hjemme.</p>
+      <ul class="gjoremal" aria-label="Eksempler på praktisk bistand">
+        <li>Rengjøring</li><li>Klesvask</li><li>Skift av sengetøy</li><li>Handling</li>
+      </ul>
+      <p class="liten">Er du nysgjerrig på hva praktisk bistand innebærer, eller lurer du på hva vi kan hjelpe deg med? Ta gjerne kontakt for en hyggelig prat.</p>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT -->
 <section class="kontakt" id="kontakt">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow center">Kontakt</p>
-      <h2>Ta gjerne kontakt for en hyggelig prat</h2>
-      <p class="lead">Du kan ta kontakt direkte med daglig leder, som også er BPA-koordinatoren din.</p>
+  <div class="wrap kontakt-grid">
+    <div class="inn">
+      <p class="merke merke-lys">Kontakt</p>
+      <h2>Snakk direkte med daglig leder</h2>
+      <p class="kontakt-ingress">Daglig leder er også BPA-koordinatoren din. Ring eller send en e-post – vi tar gjerne en hyggelig prat.</p>
     </div>
-    <div class="kontakt-kort">
-      <a class="kk reveal" href="tel:+4799475001">
-        <span class="card-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
-        <span class="kk-lbl">Ring oss</span>
-        <span class="kk-val">994 75 001</span>
-      </a>
-      <a class="kk reveal d1" href="mailto:post@totalbpa.no">
-        <span class="card-ic ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span>
-        <span class="kk-lbl">E-post</span>
-        <span class="kk-val">post@totalbpa.no</span>
-      </a>
-      <a class="kk reveal d2" href="mailto:mgo@totalbpa.no">
-        <span class="card-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
-        <span class="kk-lbl">Daglig leder og BPA-koordinator</span>
-        <span class="kk-val">mgo@totalbpa.no</span>
-      </a>
+    <div class="person inn">
+      <div class="person-topp">
+        <span class="monogram" aria-hidden="true">MO</span>
+        <div>
+          <p class="person-navn">Mats Olavesen</p>
+          <p class="person-rolle">Daglig leder og BPA-koordinator</p>
+        </div>
+      </div>
+      <a class="kanal" href="tel:+4799475001"><span>Telefon</span><strong>994 75 001</strong></a>
+      <a class="kanal" href="mailto:mgo@totalbpa.no"><span>E-post</span><strong>mgo@totalbpa.no</strong></a>
+      <a class="kanal" href="mailto:post@totalbpa.no"><span>Generelle henvendelser</span><strong>post@totalbpa.no</strong></a>
     </div>
-    <p class="kontakt-sted reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Lokal BPA-leverandør i Halden</p>
   </div>
 </section>
 
@@ -252,6 +188,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=2" defer></script>
+<script src="assets/site.js?v=3" defer></script>
 </body>
 </html>

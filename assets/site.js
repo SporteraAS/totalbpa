@@ -2,46 +2,80 @@
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* --- Skygge under toppen naar man scroller --- */
+  /* --- Linje under toppen naar man scroller --- */
   var head = document.querySelector('header.site');
-  function onScroll() { head.classList.toggle('scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
-  /* --- Scrollytelling: aktivt steg styrer bildet --- */
-  var steps = document.querySelectorAll('.story-step');
-  var scenes = document.querySelectorAll('.scene');
-  var bar = document.querySelector('.stage-progress span');
-  var cur = document.querySelector('.stage-cur');
-  function setStep(i) {
-    steps.forEach(function (s, j) { s.classList.toggle('is-active', j === i); });
-    scenes.forEach(function (s, j) { s.classList.toggle('is-active', j === i); });
-    if (bar) bar.style.width = ((i + 1) / steps.length * 100) + '%';
-    if (cur) cur.textContent = i + 1;
+  /* --- Scrollytelling 1: del teksten opp i ord som tennes --- */
+  var tenn = document.querySelector('[data-tenn]');
+  var ord = [];
+  if (tenn && !reduce) {
+    (function del(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (bit) {
+            if (!bit) return;
+            if (/^\s+$/.test(bit)) { frag.appendChild(document.createTextNode(bit)); return; }
+            var s = document.createElement('span');
+            s.className = 'ord'; s.textContent = bit;
+            frag.appendChild(s); ord.push(s);
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { del(n); }
+      });
+    })(tenn);
   }
-  if (steps.length && 'IntersectionObserver' in window) {
-    // Steget som krysser et smalt baand midt paa skjermen er aktivt
+  var tennSek = tenn && tenn.closest('.tenn');
+
+  /* --- Scrollytelling 2: linjen tegnes gjennom stegene --- */
+  var steg = document.querySelector('[data-steg]');
+  var linje = steg && steg.querySelector('.steg-linje');
+  var fyll = linje && linje.querySelector('span');
+  var punkter = steg ? steg.querySelectorAll('.steg-punkt') : [];
+
+  function klem(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  function oppdater() {
+    head.classList.toggle('scrolled', window.scrollY > 8);
+    var vh = window.innerHeight;
+
+    if (ord.length && tennSek) {
+      var r = tennSek.getBoundingClientRect();
+      var p = klem(-r.top / Math.max(1, r.height - vh), 0, 1);
+      var antall = Math.round(p * 1.2 * ord.length);
+      for (var i = 0; i < ord.length; i++) ord[i].classList.toggle('lys', i < antall);
+    }
+
+    if (steg && linje) {
+      var mid = vh * 0.6;
+      var lr = linje.getBoundingClientRect();
+      var h = klem(mid - lr.top, 0, lr.height);
+      if (fyll) fyll.style.height = (reduce ? lr.height : h) + 'px';
+      punkter.forEach(function (pk) {
+        var nr = pk.querySelector('.steg-nr').getBoundingClientRect();
+        pk.classList.toggle('paa', reduce || nr.top + nr.height / 2 <= mid);
+      });
+    }
+  }
+  var venter = false;
+  window.addEventListener('scroll', function () {
+    if (venter) return; venter = true;
+    requestAnimationFrame(function () { venter = false; oppdater(); });
+  }, { passive: true });
+  window.addEventListener('resize', oppdater);
+  oppdater();
+
+  /* --- Inngang ved scroll --- */
+  var innEls = document.querySelectorAll('.inn');
+  if (reduce || !('IntersectionObserver' in window)) {
+    innEls.forEach(function (el) { el.classList.add('vis'); });
+  } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) setStep(Array.prototype.indexOf.call(steps, en.target));
+        if (en.isIntersecting) { en.target.classList.add('vis'); io.unobserve(en.target); }
       });
-    }, { rootMargin: '-55% 0px -40% 0px' });
-    steps.forEach(function (s) { io.observe(s); });
-  } else {
-    steps.forEach(function (s) { s.classList.add('is-active'); });
-  }
-
-  /* --- Reveal ved scroll --- */
-  var revealEls = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function (el) { el.classList.add('vis'); });
-  } else {
-    var ro = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('vis'); ro.unobserve(en.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(function (el) { ro.observe(el); });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    innEls.forEach(function (el) { io.observe(el); });
   }
 
   var aar = document.getElementById('aar');
