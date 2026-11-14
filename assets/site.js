@@ -26,12 +26,6 @@
     })(tenn);
   }
 
-  /* --- Scrollytelling 2: linjen tegnes gjennom stegene --- */
-  var steg = document.querySelector('[data-steg]');
-  var linje = steg && steg.querySelector('.steg-linje');
-  var fyll = linje && linje.querySelector('span');
-  var punkter = steg ? steg.querySelectorAll('.steg-punkt') : [];
-
   function klem(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
   function oppdater() {
@@ -46,17 +40,24 @@
       for (var i = 0; i < ord.length; i++) ord[i].classList.toggle('lys', i < antall);
     }
 
-    if (steg && linje) {
-      var mid = vh * 0.6;
-      var lr = linje.getBoundingClientRect();
-      var h = klem(mid - lr.top, 0, lr.height);
-      if (fyll) fyll.style.height = (reduce ? lr.height : h) + 'px';
-      punkter.forEach(function (pk) {
-        var nr = pk.querySelector('.steg-nr').getBoundingClientRect();
-        pk.classList.toggle('paa', reduce || nr.top + nr.height / 2 <= mid);
-      });
-    }
   }
+  /* --- Den loddrette stien paa mobil skal gaa fra foerste til siste bue --- */
+  var stiV = document.querySelector('.sti-v');
+  function plasserSti() {
+    if (!stiV) return;
+    var buer = document.querySelectorAll('.sti-bue');
+    if (buer.length < 2) return;
+    var wrap = stiV.parentNode.getBoundingClientRect();
+    var a = buer[0].getBoundingClientRect(), b = buer[buer.length - 1].getBoundingClientRect();
+    stiV.style.top = (a.top + a.height / 2 - wrap.top) + 'px';
+    stiV.style.height = (b.top + b.height / 2 - a.top - a.height / 2) + 'px';
+    stiV.style.bottom = 'auto';
+  }
+  plasserSti();
+  window.addEventListener('resize', plasserSti);
+  window.addEventListener('load', plasserSti);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(plasserSti);
+
   var venter = false;
   window.addEventListener('scroll', function () {
     if (venter) return; venter = true;
