@@ -83,9 +83,9 @@ html.js .tenn-tekst .ord.lys { color: var(--blue); }
 html.js .tenn-tekst .o .ord.lys { color: var(--orange-ink); }
 
 /* felles: seksjonene skilles med luft og en tynn linje, ikke fargeflater */
-.bpa, .soknad, .bemanning, .praktisk, .kontakt { padding-block: clamp(4.5rem, 9vw, 7rem); }
-.bpa > .wrap, .soknad > .wrap, .bemanning > .wrap, .praktisk > .wrap, .kontakt > .wrap { position: relative; }
-.soknad > .wrap::before, .bemanning > .wrap::before, .praktisk > .wrap::before, .kontakt > .wrap::before { content: ''; position: absolute; left: var(--pad); right: var(--pad); top: calc(-1 * clamp(4.5rem, 9vw, 7rem)); height: 1px; background: var(--line); }
+.bpa, .soknad, .assistenter, .bemanning, .praktisk, .kontakt { padding-block: clamp(4.5rem, 9vw, 7rem); }
+.bpa > .wrap, .soknad > .wrap, .assistenter > .wrap, .bemanning > .wrap, .praktisk > .wrap, .kontakt > .wrap { position: relative; }
+.soknad > .wrap::before, .assistenter > .wrap::before, .bemanning > .wrap::before, .praktisk > .wrap::before, .kontakt > .wrap::before { content: ''; position: absolute; left: var(--pad); right: var(--pad); top: calc(-1 * clamp(4.5rem, 9vw, 7rem)); height: 1px; background: var(--line); }
 
 /* ---------- BPA hos TotalBPA ---------- */
 .bpa-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
@@ -121,11 +121,18 @@ html.js .sti-steg:nth-child(2) .sti-bue { transition-delay: .6s; }
 html.js .sti-steg:nth-child(3) .sti-bue { transition-delay: 1.05s; }
 html.js .sti-steg:nth-child(4) .sti-bue { transition-delay: 1.5s; }
 
+/* ---------- Slik jobber assistentene ---------- */
+.ass-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: start; }
+.ass-tekst p { color: var(--muted); margin-bottom: 1.1rem; }
+.ass-tekst p:first-child { font-size: clamp(1.15rem, 1.8vw, 1.3rem); line-height: 1.5; color: var(--ink); font-weight: 500; }
+
 /* ---------- Bemanning ---------- */
 .bem-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: start; }
 .bem-godkjent { display: flex; gap: .8rem; align-items: flex-start; font-weight: 600; color: var(--blue); max-width: 28rem; font-size: 1rem; }
 .bem-godkjent::before { content: '✓'; flex: none; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--orange); color: #fff; font-size: .78rem; font-weight: 800; margin-top: .1rem; }
 .bem-tekst p { color: var(--muted); margin-bottom: 1.1rem; }
+.bem-krav { margin-top: 2rem; padding: 1.5rem 1.6rem .4rem; background: var(--blue-lys); border-radius: 18px; }
+.bem-krav h3 { color: var(--blue); margin-bottom: .7rem; }
 .bem-sporsmal { font-size: 1.25rem; font-weight: 700; color: var(--ink) !important; margin-top: 1.8rem; }
 
 /* ---------- Praktisk bistand ---------- */
@@ -166,7 +173,7 @@ html.js .inn.vis { opacity: 1; transform: none; }
 @media (max-width: 960px) {
   header.site nav { display: none; }
   header.site .knapp-liten { margin-left: auto; }
-  .hero-grid, .bpa-grid, .bem-grid, .kontakt-grid { grid-template-columns: 1fr; }
+  .hero-grid, .bpa-grid, .ass-grid, .bem-grid, .kontakt-grid { grid-template-columns: 1fr; }
   .buer { max-width: 520px; width: 100%; margin: 0 auto; }
   .bue-hoy { aspect-ratio: 4 / 3; max-width: 520px; }
   .praktisk-boks { grid-template-columns: 1fr; }
